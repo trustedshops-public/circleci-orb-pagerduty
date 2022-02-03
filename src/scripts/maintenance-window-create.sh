@@ -19,6 +19,8 @@ function json_escape() {
     jq -R -s '.' <<< "$1"
 }
 
+PARAM_DESCRIPTION=$(eval echo "$PARAM_DESCRIPTION")
+
 # date format to use for pagerduty
 date_format='%Y-%m-%dT%H:%M:%S-00:00'
 pagerduty_token=$(eval echo "\$$PARAM_PAGERDUTY_TOKEN")
