@@ -58,3 +58,5 @@ TEXT
 id=$(echo "$response" | jq -r ".maintenance_window.id")
 export PAGERDUTY_MAINTENANCE_WINDOW_ID="${id}"
 echo "export PAGERDUTY_MAINTENANCE_WINDOW_ID='${id}'" >> "$BASH_ENV"
+
+echo "Maintenance window created: ${PAGERDUTY_MAINTENANCE_WINDOW_ID}"
