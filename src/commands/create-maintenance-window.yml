@@ -25,9 +25,8 @@ steps:
   - run:
       name: Create pagerduty maintenance window
       environment:
-        PARAM_MAINTENANCE_WINDOW_ID: <<parameters.maintenance-window-id>>
         PARAM_PAGERDUTY_TOKEN: <<parameters.pagerduty-token>>
-        PARAM_PAGERDUTY_MAIL: <<parameters.pagerduty-mail>>
+        PARAM_PAGERDUTY_MAIL: <<parameters.from-mail>>
         PARAM_DURATION_MINUTES: <<parameters.duration>>
         PARAM_DESCRIPTION: <<parameters.description>>
         PARAM_SERVICES: <<parameters.services>>
