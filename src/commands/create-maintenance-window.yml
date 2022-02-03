@@ -9,7 +9,7 @@ parameters:
   duration:
     default: 15
     description: Duration of the maintenance interval in minutes
-    type: string
+    type: integer
   description:
     default: "CircleCI Deployment ${CIRCLE_WORKFLOW_ID}-${CIRCLE_JOB} | for more information see ${CIRCLE_BUILD_URL}"
     description: Description for the maintenance window, can contain env vars
