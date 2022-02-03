@@ -7,7 +7,7 @@ then
 fi
 
 pagerduty_token=$(eval echo "\$$PARAM_PAGERDUTY_TOKEN")
-PARAM_MAINTENANCE_WINDOW_ID=$(eval echo "\$$PARAM_MAINTENANCE_WINDOW_ID")
+PARAM_MAINTENANCE_WINDOW_ID=$(eval "$(eval echo "\$$PARAM_MAINTENANCE_WINDOW_ID")")
 
 curl --request DELETE \
   --url "https://api.pagerduty.com/maintenance_windows/${PARAM_MAINTENANCE_WINDOW_ID}" \
