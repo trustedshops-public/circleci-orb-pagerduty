@@ -1,5 +1,6 @@
 description: >
   Delete maintenance window
+
 parameters:
   maintenance-window-id:
     default: PAGERDUTY_MAINTENANCE_WINDOW_ID
@@ -9,6 +10,7 @@ parameters:
     default: PAGERDUTY_TOKEN
     description: Environment variable containing pagerduty token for api calls
     type: env_var_name
+
 steps:
   - run:
       name: Delete pagerduty maintenance window

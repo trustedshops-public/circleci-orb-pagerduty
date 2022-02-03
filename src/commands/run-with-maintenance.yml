@@ -1,6 +1,5 @@
 description: >
-  Create maintenance window.
-  The created maintenance window id is stored inside $PAGERDUTY_MAINTENANCE_WINDOW_ID
+  Run given steps with a maintenance window
 
 parameters:
   pagerduty-token:
@@ -22,14 +21,17 @@ parameters:
     default: PAGERDUTY_EMAIL
     description: Environment variable containing a valid mail address as which the pagerduty maintenance window should be created
     type: env_var_name
+  steps:
+    type: steps
+    description: Steps to execute with connection open
 
 steps:
-  - run:
-      name: Create pagerduty maintenance window
-      environment:
-        PARAM_PAGERDUTY_TOKEN: <<parameters.pagerduty-token>>
-        PARAM_PAGERDUTY_MAIL: <<parameters.from-mail>>
-        PARAM_DURATION_MINUTES: <<parameters.duration>>
-        PARAM_DESCRIPTION: <<parameters.description>>
-        PARAM_SERVICES: <<parameters.services>>
-      command: <<include(scripts/maintenance-window-create.sh)>>
+  - create-maintenance-window:
+      pagerduty-token: <<parameters.pagerduty-token>>
+      duration: <<parameters.duration>>
+      description: <<parameters.description>>
+      services: <<parameters.services>>
+      from-mail: <<parameters.from-mail>>
+  - <<parameters.steps>>
+  - delete-maintenance-window:
+      pagerduty-token: <<parameters.pagerduty-token>>
