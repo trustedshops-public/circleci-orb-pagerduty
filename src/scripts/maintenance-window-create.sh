@@ -33,7 +33,7 @@ done
 
 # Create maintenance
 response=$(curl --request POST \
-  --fail-with-body \
+  --fail \
   --url "https://api.pagerduty.com/maintenance_windows" \
   --header 'Accept: application/vnd.pagerduty+json;version=2' \
   --header "Authorization: Token token=${pagerduty_token}" \
