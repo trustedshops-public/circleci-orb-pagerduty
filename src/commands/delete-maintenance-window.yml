@@ -2,7 +2,7 @@ description: >
   Delete maintenance window
 parameters:
   maintenance-window-id:
-    default: Default value
+    default: PAGERDUTY_MAINTENANCE_WINDOW_ID
     description: Maintenance window id
     type: string
   pagerduty-token:
