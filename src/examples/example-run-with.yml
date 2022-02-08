@@ -1,0 +1,20 @@
+description: Run your deployment with pagerduty maintenance
+usage:
+  version: 2.1
+  orbs:
+    pagerduty: trustedshops-public/pagerduty@<version>
+  workflows:
+    version: 2
+    continious:
+      jobs:
+        - deploy:
+            steps:
+              - pagerduty/run-with-maintenance:
+                  services: PXXXX,PXYZ
+                  steps:
+                    - run:
+                        name: Run deployment
+                        script: make deploy
+            filters:
+              branches:
+                only: [ main ]

@@ -1,7 +1,9 @@
 version: 2.1
 
 description: |
-  PagerDuty functionality for your pipelines
+  PagerDuty functionality for your pipelines.
+
+  This orb requires jq to be installed (which is the case for cimg/* docker images).
 display:
   home_url: "https://github.com/trustedshops-public/circleci-orb-pagerduty"
   source_url: "https://github.com/trustedshops-public/circleci-orb-pagerduty"
