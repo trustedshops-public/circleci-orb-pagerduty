@@ -1,0 +1,21 @@
+description: Run your deployment with manual control over maintenance
+usage:
+  version: 2.1
+  orbs:
+    pagerduty: trustedshops-public/pagerduty@<version>
+  workflows:
+    version: 2
+    continious:
+      jobs:
+        - deploy:
+            steps:
+              - pagerduty/create-maintenance-window:
+                  services: PXXXX,PXYZ
+                  duration: 60
+              - run:
+                  name: Run deployment
+                  script: make deploy
+              # Don't stop, but rather wait one hour because e.g. your legacy system requires some time to recover
+            filters:
+              branches:
+                only: [ main ]

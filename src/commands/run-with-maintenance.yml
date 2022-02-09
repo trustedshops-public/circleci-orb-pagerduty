@@ -1,0 +1,37 @@
+description: >
+  Run given steps with a maintenance window
+
+parameters:
+  pagerduty-token:
+    default: PAGERDUTY_TOKEN
+    description: Environment variable containing pagerduty token for api calls
+    type: env_var_name
+  duration:
+    default: 15
+    description: Duration of the maintenance interval in minutes
+    type: integer
+  description:
+    default: "CircleCI Deployment ${CIRCLE_WORKFLOW_ID}-${CIRCLE_JOB} | for more information see ${CIRCLE_BUILD_URL}"
+    description: Description for the maintenance window, can contain env vars
+    type: string
+  services:
+    description: List of services, seperated with comma WITHOUT spaces
+    type: string
+  from-mail:
+    default: PAGERDUTY_EMAIL
+    description: Environment variable containing a valid mail address as which the pagerduty maintenance window should be created
+    type: env_var_name
+  steps:
+    type: steps
+    description: Steps to execute with connection open
+
+steps:
+  - create-maintenance-window:
+      pagerduty-token: <<parameters.pagerduty-token>>
+      duration: <<parameters.duration>>
+      description: <<parameters.description>>
+      services: <<parameters.services>>
+      from-mail: <<parameters.from-mail>>
+  - <<parameters.steps>>
+  - delete-maintenance-window:
+      pagerduty-token: <<parameters.pagerduty-token>>

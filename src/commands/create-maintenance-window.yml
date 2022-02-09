@@ -1,0 +1,35 @@
+description: >
+  Create maintenance window.
+  The created maintenance window id is stored inside $PAGERDUTY_MAINTENANCE_WINDOW_ID
+
+parameters:
+  pagerduty-token:
+    default: PAGERDUTY_TOKEN
+    description: Environment variable containing pagerduty token for api calls
+    type: env_var_name
+  duration:
+    default: 15
+    description: Duration of the maintenance interval in minutes
+    type: integer
+  description:
+    default: "CircleCI Deployment ${CIRCLE_WORKFLOW_ID}-${CIRCLE_JOB} | for more information see ${CIRCLE_BUILD_URL}"
+    description: Description for the maintenance window, can contain env vars
+    type: string
+  services:
+    description: List of services, seperated with comma WITHOUT spaces
+    type: string
+  from-mail:
+    default: PAGERDUTY_EMAIL
+    description: Environment variable containing a valid mail address as which the pagerduty maintenance window should be created
+    type: env_var_name
+
+steps:
+  - run:
+      name: Create pagerduty maintenance window
+      environment:
+        PARAM_PAGERDUTY_TOKEN: <<parameters.pagerduty-token>>
+        PARAM_PAGERDUTY_MAIL: <<parameters.from-mail>>
+        PARAM_DURATION_MINUTES: <<parameters.duration>>
+        PARAM_DESCRIPTION: <<parameters.description>>
+        PARAM_SERVICES: <<parameters.services>>
+      command: <<include(scripts/maintenance-window-create.sh)>>
