@@ -18,3 +18,4 @@ steps:
         PARAM_MAINTENANCE_WINDOW_ID: <<parameters.maintenance-window-id>>
         PARAM_PAGERDUTY_TOKEN: <<parameters.pagerduty-token>>
       command: <<include(scripts/maintenance-window-delete.sh)>>
+    when: always
