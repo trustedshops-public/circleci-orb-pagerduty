@@ -1,5 +1,5 @@
 description: >
-  Delete maintenance window
+  Delete maintenance window. The delete step will always be executed, even if parts of your pipelines fail.
 
 parameters:
   maintenance-window-id:
