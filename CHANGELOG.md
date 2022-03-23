@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/trustedshops-public/circleci-orb-pagerduty/compare/1.0.0...1.1.0) (2022-03-23)
+
+
+### Features
+
+* End maintenance window in all cases ([#2](https://github.com/trustedshops-public/circleci-orb-pagerduty/issues/2)) ([cdc6010](https://github.com/trustedshops-public/circleci-orb-pagerduty/commit/cdc60105192097a0a5e0b20f29b736536342c0de))
+
 # 1.0.0 (2022-02-09)
 
 
