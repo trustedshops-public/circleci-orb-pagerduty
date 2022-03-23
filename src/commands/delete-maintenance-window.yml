@@ -1,5 +1,5 @@
 description: >
-  Delete maintenance window
+  Delete maintenance window. The delete step will always be executed, even if parts of your pipelines fail.
 
 parameters:
   maintenance-window-id:
@@ -18,3 +18,4 @@ steps:
         PARAM_MAINTENANCE_WINDOW_ID: <<parameters.maintenance-window-id>>
         PARAM_PAGERDUTY_TOKEN: <<parameters.pagerduty-token>>
       command: <<include(scripts/maintenance-window-delete.sh)>>
+      when: always
