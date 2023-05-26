@@ -2,7 +2,7 @@ description: >
   Run given steps with a maintenance window
 
 parameters:
-  pagerduty-token:
+  pagerduty_token:
     default: PAGERDUTY_TOKEN
     description: Environment variable containing pagerduty token for api calls
     type: env_var_name
@@ -17,7 +17,7 @@ parameters:
   services:
     description: List of services, seperated with comma WITHOUT spaces
     type: string
-  from-mail:
+  from_mail:
     default: PAGERDUTY_EMAIL
     description: Environment variable containing a valid mail address as which the pagerduty maintenance window should be created
     type: env_var_name
@@ -26,12 +26,12 @@ parameters:
     description: Steps to execute with connection open
 
 steps:
-  - create-maintenance-window:
-      pagerduty-token: <<parameters.pagerduty-token>>
+  - create_maintenance_window:
+      pagerduty_token: <<parameters.pagerduty_token>>
       duration: <<parameters.duration>>
       description: <<parameters.description>>
       services: <<parameters.services>>
-      from-mail: <<parameters.from-mail>>
+      from_mail: <<parameters.from_mail>>
   - <<parameters.steps>>
-  - delete-maintenance-window:
-      pagerduty-token: <<parameters.pagerduty-token>>
+  - delete_maintenance_window:
+      pagerduty_token: <<parameters.pagerduty_token>>
