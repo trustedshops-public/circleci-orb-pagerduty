@@ -1,3 +1,14 @@
+## [2.0.0](https://github.com/trustedshops-public/circleci-orb-pagerduty/compare/1.1.0...2.0.0) (2023-05-26)
+
+
+### ⚠ BREAKING CHANGES
+
+* Migrate to orb tools v12 (#13)
+
+### grefactor
+
+* Migrate to orb tools v12 ([#13](https://github.com/trustedshops-public/circleci-orb-pagerduty/issues/13)) ([de98e57](https://github.com/trustedshops-public/circleci-orb-pagerduty/commit/de98e5729a8b1d0786fcdd7ef5d8acc01dc60b8e))
+
 # [1.1.0](https://github.com/trustedshops-public/circleci-orb-pagerduty/compare/1.0.0...1.1.0) (2022-03-23)
 
 
