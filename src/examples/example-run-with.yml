@@ -9,7 +9,7 @@ usage:
       jobs:
         - deploy:
             steps:
-              - pagerduty/run-with-maintenance:
+              - pagerduty/run_with_maintenance:
                   services: PXXXX,PXYZ
                   steps:
                     - run:

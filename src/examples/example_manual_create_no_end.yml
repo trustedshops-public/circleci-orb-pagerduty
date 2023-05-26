@@ -9,7 +9,7 @@ usage:
       jobs:
         - deploy:
             steps:
-              - pagerduty/create-maintenance-window:
+              - pagerduty/create_maintenance_window:
                   services: PXXXX,PXYZ
                   duration: 60
               - run:

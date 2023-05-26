@@ -2,11 +2,11 @@ description: >
   Delete maintenance window. The delete step will always be executed, even if parts of your pipelines fail.
 
 parameters:
-  maintenance-window-id:
+  maintenance_window_id:
     default: PAGERDUTY_MAINTENANCE_WINDOW_ID
     description: Maintenance window id
     type: string
-  pagerduty-token:
+  pagerduty_token:
     default: PAGERDUTY_TOKEN
     description: Environment variable containing pagerduty token for api calls
     type: env_var_name
@@ -15,7 +15,7 @@ steps:
   - run:
       name: Delete pagerduty maintenance window
       environment:
-        PARAM_MAINTENANCE_WINDOW_ID: <<parameters.maintenance-window-id>>
-        PARAM_PAGERDUTY_TOKEN: <<parameters.pagerduty-token>>
+        PARAM_MAINTENANCE_WINDOW_ID: <<parameters.maintenance_window_id>>
+        PARAM_PAGERDUTY_TOKEN: <<parameters.pagerduty_token>>
       command: <<include(scripts/maintenance-window-delete.sh)>>
       when: always
